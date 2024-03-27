@@ -20,5 +20,6 @@ function get_all_posts()
 }
 
 $posts = get_all_posts();
-require PATH_PREPEND.'templates/list.php'
+require PATH_PREPEND.'templates/list.php';
+//require PATH_PREPEND.'templates/main.php';
 ?>

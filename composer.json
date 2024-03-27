@@ -1,7 +1,5 @@
 {
     "name": "nwartell/framework",
-    "description": "Vanilla PHP quick-start with an app and API.",
-    "type": "project",
     "require": {
         "vlucas/phpdotenv": "^5.6",
         "firebase/php-jwt": "^6.10"

@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /framework/api/
+RewriteBase /framework/public_html/api/
 
 # If the request is not for a valid file or directory
 RewriteCond %{REQUEST_FILENAME} !-f

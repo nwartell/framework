@@ -1,5 +1,5 @@
 <?php
-// Endpoint: transactions/all
+// Endpoint: misc/posts/get
 
 if(isset($_GET['order'])) {
     $order = strtoupper($_GET['order']);
@@ -14,7 +14,7 @@ if(isset($_GET['order'])) {
 try {
     $pdo = pdo_open();
 
-    $sql = "SELECT * FROM investments_import ORDER BY open_date ";
+    $sql = "SELECT * FROM posts ORDER BY date_created ";
     if ($order === 'ASC' || $order === 'DESC') {
         $sql .= $order;
     } else {
@@ -31,6 +31,7 @@ try {
     echo $json;
 
 } catch (PDOException $e) {
+    echo $e->getMessage();
     echo json_encode(array('error' => 'Internal database error. Contact administrator.'));
 } finally {
     pdo_close($pdo);

@@ -1,0 +1,2 @@
+# Allow $_SERVER['HTTP_AUTHORIZATION']
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1

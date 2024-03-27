@@ -1,6 +1,6 @@
 <?php
 
-$title = set_title('All Posts');
+$title = setTitle('All Posts');
 
 function get_all_posts()
 {

@@ -1,6 +1,7 @@
 <?php
 // Autoloader
 require_once __DIR__ . '/../../vendor/autoload.php';
+use Firebase\JWT\JWT;
 
 $dotenvPath = __DIR__ . '/../../';
 $dotenv = Dotenv\Dotenv::createImmutable($dotenvPath);
@@ -14,15 +15,18 @@ const PATH_PREPEND_DIR = '/../../app/';
 const DEFAULT_ROUTE = __DIR__ . PATH_PREPEND_DIR . 'controllers/index.php';
 
 // Bootstrap functions
-function model_require(string $modelname) {
+function useModel(string $modelname) {
     require_once PATH_PREPEND.'models/'.$modelname.'.php';
 }
-function controller_require(string $controllername) {
+function useController(string $controllername) {
     if ($controllername === 'central') {
         require_once PATH_PREPEND.'controllers/_controller.php';
     } else {
         require_once PATH_PREPEND.'controllers/'.$controllername.'.php';
     }
+}
+function useTemplate(string $templatename) {
+    require_once PATH_PREPEND.'templates/'.$templatename.'.php';
 }
 
 ?>

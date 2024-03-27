@@ -1,5 +1,3 @@
-<!-- templates/list.php -->
-
 <?php ob_start() ?>
     <h1>List of Posts</h1>
     <ul>

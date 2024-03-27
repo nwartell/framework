@@ -1,6 +1,6 @@
 <?php
 
-requireAuth();
+Auth::require();
 
 $title = setTitle('All Posts');
 

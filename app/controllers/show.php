@@ -1,8 +1,8 @@
 <?php
 
-requireAuth();
+Auth::require();
 
-$id = extract_param('id');
+$id = Router::extractParam('id');
 
 function get_post_by_id($id)
 {

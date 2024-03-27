@@ -10,13 +10,13 @@ useController('central');
 
 // Route Logic
 $full_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$uri = extract_uri($full_uri);
-$routepath = routeme($full_uri);
+$uri = Router::extractUri($full_uri);
+$routepath = Router::routeMe($full_uri);
 
 // Authgate
 if (isset($_SESSION['TOKEN'])) {
-    $token = authGate($_SESSION['TOKEN']);
-    $_SESSION['AUTH_STATE'] = authState($token);
+    $token = Auth::gate($_SESSION['TOKEN']);
+    $_SESSION['AUTH_STATE'] = Auth::state($token);
 } else {
     $_SESSION['AUTH_STATE'] = false; // Token session var not set
 }

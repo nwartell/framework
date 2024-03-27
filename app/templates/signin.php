@@ -1,11 +1,13 @@
 <?php ob_start() ?>
 
-    <form action="signin_handler.php" method="POST">
+    <form id="login_form" method="POST" action="signin_handler">
+        <div id="message"><?php if (isset($_SESSION['message'])) {echo $_SESSION['message'];} ?></div>
         <div><label for="username">Username</label></div>
-        <div><input type="text" name="username" id="username"></div>
-        <div><label for="passowrd">Password</label></div>
-        <div><input type="password" name="password" id="password"></div>
+        <div><input type="text" name="username" id="username" required></div>
+        <div><label for="password">Password</label></div>
+        <div><input type="password" name="password" id="password" required></div>
         <div><input type="submit" value="Sign In"></div>
+        <div>Don't have an account? <a href="register">Create an account</a></div>
     </form>
 
 <?php $content = ob_get_clean() ?>

@@ -5,6 +5,7 @@ session_start();
 // Global Requirements
 require_once '../../app/inc/global.php';
 useModel('database');
+useModel('user');
 useController('central');
 
 // Route Logic

@@ -1,5 +1,7 @@
 <?php
 
+requireAuth();
+
 $title = setTitle('All Posts');
 
 function get_all_posts()

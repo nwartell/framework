@@ -1,5 +1,7 @@
 <?php
 
+requireAuth();
+
 $id = extract_param('id');
 
 function get_post_by_id($id)

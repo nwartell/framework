@@ -78,4 +78,10 @@ function authState($decodedToken) : bool {
     }
 }
 
+function requireAuth() {
+    if ($_SESSION['AUTH_STATE'] === false) {
+        header('Location: signin');
+    }
+}
+
 ?>

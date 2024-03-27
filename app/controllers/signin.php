@@ -1,6 +1,6 @@
 <?php
 
-$title = setTitle('Sign In');
+$title = Page::setTitle('Sign In');
 
 if ($_SESSION['AUTH_STATE'] === false) {
     require PATH_PREPEND.'templates/signin.php';

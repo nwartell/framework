@@ -2,7 +2,7 @@
 
 Auth::require();
 
-$title = setTitle('All Posts');
+$title = Page::setTitle('All Posts');
 
 function get_all_posts()
 {

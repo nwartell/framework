@@ -14,6 +14,8 @@ const PATH_PREPEND = '../../app/';
 const PATH_PREPEND_DIR = '/../../app/';
 const DEFAULT_ROUTE = __DIR__ . PATH_PREPEND_DIR . 'controllers/index.php';
 
+const SITENAME = 'Framework PHP';
+
 // Bootstrap functions
 function useModel(string $modelname) {
     require_once PATH_PREPEND.'models/'.$modelname.'.php';

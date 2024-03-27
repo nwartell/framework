@@ -29,13 +29,6 @@ class Router {
 
 }
 
-// HEADERS
-function setTitle(string $page_title) {
-    $site_name = 'Framework PHP';
-    $full_title = htmlspecialchars($page_title) . ' | ' . $site_name; 
-    return $full_title;
-}
-
 class Auth {
 
     // ACCESS CONTROL
@@ -90,6 +83,14 @@ class Auth {
         }
     }
 
+}
+
+class Page {
+    public static function setTitle(string $page_title) {
+        $site_name = SITENAME;
+        $full_title = htmlspecialchars($page_title) . ' | ' . $site_name; 
+        return $full_title;
+    }
 }
 
 ?>

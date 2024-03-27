@@ -1,6 +1,6 @@
 <?php
 
-$title = setTitle('Register');
+$title = Page::setTitle('Register');
 
 if ($_SESSION['AUTH_STATE'] === false) {
     require PATH_PREPEND.'templates/register.php';

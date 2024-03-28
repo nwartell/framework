@@ -50,6 +50,11 @@ class Auth {
                 $uuid = $jwtDecoded->uuid;
                 $username = $jwtDecoded->username;
 
+                if (time() > $exp) {
+                    echo '[AUTHGATE] ERROR: Token has expired';
+                    return false;
+                }
+
                 return array(
                     'iat' => $iat,
                     'iss' => $iss,

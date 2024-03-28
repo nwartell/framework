@@ -21,7 +21,7 @@ class Router {
     // URL PARAMTERS
     public static function extractParam($arg) {
         if (isset($_GET[$arg])) {
-            return $_GET[$arg];
+            return htmlspecialchars($_GET[$arg]);
         } else {
             return 'ERROR: Unset Parameter.';
         }

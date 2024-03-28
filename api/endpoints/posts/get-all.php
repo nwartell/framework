@@ -1,5 +1,4 @@
 <?php
-// Endpoint: misc/posts/get
 
 if(isset($_GET['order'])) {
     $order = strtoupper($_GET['order']);

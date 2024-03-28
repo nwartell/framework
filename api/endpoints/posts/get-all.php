@@ -1,5 +1,7 @@
 <?php
 
+API::requireKey();
+
 if(isset($_GET['order'])) {
     $order = strtoupper($_GET['order']);
     if ($order !== 'ASC' && $order !== 'DESC') {

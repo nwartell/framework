@@ -1,6 +1,8 @@
 <?php
 
-if(isset($_GET['id'])) {
+API::requireKey();
+
+if(isset($_GET['id']) && ctype_digit($_GET['id'])) {
     $id = htmlspecialchars($_GET['id']);
     try {
         $pdo = pdo_open();
@@ -26,7 +28,7 @@ if(isset($_GET['id'])) {
         pdo_close($pdo);
     }
 } else {
-    echo json_encode(array(('error') => 'ID Unset'));
+    echo json_encode(array(('error') => 'ID invalid or not set'));
     exit;
 }
 

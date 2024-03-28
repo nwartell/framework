@@ -57,6 +57,18 @@ class User {
 
             if (!$user) {
 
+                if (!preg_match(
+                        '/^' .             // Start of string
+                        '(?=.*[0-9])' .    // One digit (0-9)
+                        '(?=.*[A-Z])' .    // One uppercase letter
+                        '(?=.*[!@#$%^&*(),.?":{}|<>])' . // One special character
+                        '.{8,}' .          // At least 8 characters
+                        '$/',             // End of string
+                        $password
+                )) {
+                    return 'Password does not meet the minimum criteria.';
+                }
+
                 if ($password !== $password_ver) {
                     return 'Passwords do not match';
                 }

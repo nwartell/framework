@@ -1,2 +1,5 @@
 # Allow $_SERVER['HTTP_AUTHORIZATION']
 SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+## Content Security Policy
+Header set Content-Security-Policy "default-src 'self';"

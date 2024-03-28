@@ -2,7 +2,7 @@
 
 Auth::require();
 
-$id = Router::extractParam('id');
+$id = Url::extractParam('id');
 
 $post = Endpoint::getById('posts',$id);
 

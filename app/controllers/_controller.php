@@ -18,6 +18,9 @@ class Router {
         return $routepath = __DIR__ . PATH_PREPEND_DIR . 'controllers/' . $uri . '.php';
     }
 
+}
+
+class Url {
     // URL PARAMTERS
     public static function extractParam($arg) {
         if (isset($_GET[$arg])) {
@@ -26,7 +29,6 @@ class Router {
             return 'ERROR: Unset Parameter.';
         }
     }
-
 }
 
 class Auth {
@@ -83,7 +85,7 @@ class Auth {
     }
 
     public static function require() {
-        if ($_SESSION['AUTH_STATE'] === false) {
+        if (!$_SESSION['AUTH_STATE'] === true) {
             header('Location: signin');
         }
     }

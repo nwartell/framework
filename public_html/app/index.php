@@ -17,6 +17,7 @@ $routepath = Router::routeMe($full_uri);
 // Authgate
 if (isset($_SESSION['TOKEN'])) {
     $token = Auth::gate($_SESSION['TOKEN']);
+    $_SESSION['UUID'] = $token['uuid'];
     $_SESSION['AUTH_STATE'] = Auth::state($token);
 } else {
     $_SESSION['AUTH_STATE'] = false; // Token session var not set

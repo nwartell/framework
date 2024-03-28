@@ -95,6 +95,31 @@ class User {
         }
     }
 
+    public static function getInfo() {
+        try {
+            $pdo = pdo_open();
+
+            $stmt = $pdo->prepare("SELECT fname, lname, username
+                FROM users WHERE uuid = UNHEX(REPLACE(?,'-',''));");
+            $stmt->bindValue(1, $_SESSION['UUID']);
+            $stmt->execute();
+
+            if ($stmt->rowCount() === 1) {
+                $userInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+                return array(
+                    'fname' => htmlspecialchars($userInfo['fname']),
+                    'lname' => htmlspecialchars($userInfo['lname']),
+                    'username' => htmlspecialchars($userInfo['username'])
+                );
+            }
+
+        } catch (PDOException $e) {
+            echo 'Error: '.$e->getMessage();
+        } finally {
+            pdo_close($pdo);
+        }
+    }
+
 }
 
 ?>

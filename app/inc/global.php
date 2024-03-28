@@ -1,4 +1,7 @@
 <?php
+// Set headers
+header('Content-Type: text/html; charset=utf-8');
+
 // Autoloader
 require_once __DIR__ . '/../../vendor/autoload.php';
 use Firebase\JWT\JWT;

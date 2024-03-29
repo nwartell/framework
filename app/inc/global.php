@@ -1,6 +1,9 @@
 <?php
 // Set headers
 header('Content-Type: text/html; charset=utf-8');
+header('Referrer-Policy: no-referrer');
+header('X-Frame-Options: DENY');
+header('X-XSS-Protection: 1; mode=block');
 
 // Autoloader
 require_once __DIR__ . '/../../vendor/autoload.php';

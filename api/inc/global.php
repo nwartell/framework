@@ -8,6 +8,6 @@ $dotenvPath = __DIR__ . '/../../';
 $dotenv = Dotenv\Dotenv::createImmutable($dotenvPath);
 $dotenv->load();
 
-const HOST = '/public_html/api/';
+const HOST = '/api/';
 
 ?>

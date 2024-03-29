@@ -11,14 +11,14 @@ $dotenv->load();
 
 // Constants
 const ROOT = '/app/';
-const PUBLIC_DIR = '/public_html/app/';
+const PUBLIC_DIR = '/app/';
 const PATH_PREPEND = '../../app/';
 const PATH_PREPEND_DIR = '/../../app/';
 const DEFAULT_ROUTE = __DIR__ . PATH_PREPEND_DIR . 'controllers/index.php';
 
 const SITENAME = 'Framework PHP'; // Will append page title
 
-const ENDPOINT = 'http://localhost:8888/public_html/api/';
+const ENDPOINT = 'http://localhost:8888/api/';
 
 // Bootstrap functions
 function useModel(string $modelname) {

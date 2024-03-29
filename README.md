@@ -6,4 +6,4 @@ A simple MVC scaffold for PHP and REST API for MySQL/MariaDB
 - Independent REST API for database operations
 - Supports environment variables for sensitive credentials
 - Argon2id password hashing
-- Session authentication via JWT
+- Authenticated user sessions

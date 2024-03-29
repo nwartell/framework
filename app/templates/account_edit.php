@@ -2,21 +2,22 @@
 <h2>Your Account</h2>
 <div>
     <h4>Profile</h4>
-    <form action="">
-    <div>
-        <label for="fname">First Name: </label>
-        <input type="text" name="fname" id="fname" value="<?= $userInfo['fname']; ?>">
-    </div>
-    <div>
-        <label for="lname">Last Name: </label>
-        <input type="text" name="lname" id="lname" value="<?= $userInfo['lname']; ?>">
-    </div>
-    <div>
-        <label for="lname">Username: </label>
-        <input type="text" name="uname" id="uname" value="<?= $userInfo['username']; ?>">
-    </div>
+    <form id="account_info_form" method="POST" action="handlers/edit_account_handler.php">
+        <div id="message"></div>
+        <div>
+            <label for="fname">First Name: </label>
+            <input type="text" name="fname" id="fname" value="<?= $userInfo['fname']; ?>">
+        </div>
+        <div>
+            <label for="lname">Last Name: </label>
+            <input type="text" name="lname" id="lname" value="<?= $userInfo['lname']; ?>">
+        </div>
+        <div>
+            <label for="lname">Username: </label>
+            <input type="text" name="username" id="username" value="<?= $userInfo['username']; ?>">
+        </div>
 
-    <a href="account">Discard Changes</a> <input type="submit" value="Save Changes">
+        <a href="account">Discard Changes</a> <input type="submit" value="Save Changes">
     </form>
 </div>
 <!--<div> TO BE IMPLEMENTED

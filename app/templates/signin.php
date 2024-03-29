@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 
-    <form id="login_form" method="POST" action="signin_handler">
+    <form id="login_form" method="POST" action="handlers/signin_handler">
         <div id="message"><?php if (isset($_SESSION['message'])) {echo $_SESSION['message'];} ?></div>
         <div><label for="username">Username</label></div>
         <div><input type="text" name="username" id="username" required></div>

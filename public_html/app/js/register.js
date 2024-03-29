@@ -8,7 +8,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: 'register_handler.php',
+            url: 'handlers/register_handler.php',
             data: { username: username, password: password, password_ver: password_ver },
             success: function(response) {
                 $('#message').html(response);

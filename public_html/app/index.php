@@ -1,6 +1,6 @@
 <?php
 // Initialize PHP Session
-session_start();
+session_start(['cookie_httponly' => true, 'cookie_secure' => true]);
 
 // Global Requirements
 require_once '../../app/inc/global.php';

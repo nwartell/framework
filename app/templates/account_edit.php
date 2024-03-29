@@ -12,7 +12,7 @@
         <input type="text" name="lname" id="lname" value="<?= $userInfo['lname']; ?>">
     </div>
     <div>
-        <label for="lname">Last Name: </label>
+        <label for="lname">Username: </label>
         <input type="text" name="uname" id="uname" value="<?= $userInfo['username']; ?>">
     </div>
 

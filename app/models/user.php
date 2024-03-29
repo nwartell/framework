@@ -1,7 +1,5 @@
 <?php
 
-use Firebase\JWT\JWT;
-
 class User {
 
     // Sign in the user
@@ -16,22 +14,16 @@ class User {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user && password_verify($password, $user['password'])) {
-                $iat = time();
-                $nbf = $iat;
-                $exp = $iat + (24 * 60 * 60); // Token valid for 24 hours
 
-                $tokenPayload = array(
-                    'iat' => $iat, // Time of issuance
-                    'iss' => 'wartell', // Issuer identification
-                    'nbf' => $nbf, // Start time for token validity
-                    'exp' => $exp, // Token expiration
+                $payload = array(
                     'uuid' => $user['uuid'], // User's UUID
                     'username' => $user['username'] // User's username
                 );
-                $jwtToken = JWT::encode($tokenPayload, $_ENV['APP_JWT'], 'HS256');
-                $_SESSION['TOKEN'] = $jwtToken;
+
+                $_SESSION['TOKEN'] = $payload;
 
                 return true;
+
             } else {
                 return 'Username or password incorrect.';
             }

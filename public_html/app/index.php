@@ -14,11 +14,10 @@ $full_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = Router::extractUri($full_uri);
 $routepath = Router::routeMe($full_uri);
 
-// Authgate
+// Auth state
 if (isset($_SESSION['TOKEN'])) {
-    $token = Auth::gate($_SESSION['TOKEN']);
-    $_SESSION['UUID'] = $token['uuid'];
-    $_SESSION['AUTH_STATE'] = Auth::state($token);
+    $token = $_SESSION['TOKEN'];
+    $_SESSION['AUTH_STATE'] = true;
 } else {
     $_SESSION['AUTH_STATE'] = false; // Token session var not set
 }

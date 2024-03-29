@@ -7,11 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset(
     $result = User::signIn($username, $password);
 
     if ($result === true) {
-        header('Location: index');
+        header('Location: ../index');
         exit();
     } else {
         $_SESSION['message'] = $result;
-        header('Location: signin');
+        header('Location: ../signin');
     }
 
 } else {

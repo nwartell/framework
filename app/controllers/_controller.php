@@ -51,57 +51,7 @@ class Http {
 
 class Auth {
 
-    // ACCESS CONTROL
-    public static function gate($token) {
-        try {
-
-            if (empty($token)) {
-                echo '[AUTHGATE] ERROR: Token is empty';
-                return false;
-            } else {
-
-                //$jwtDecoded = JWT::decode($token, $_ENV['APP_JWT'], 'HS256'); // Old usage
-                $jwtDecoded = JWT::decode($token, new Key($_ENV['APP_JWT'], 'HS256')); // New usage
-            
-                $iat = $jwtDecoded->iat;
-                $iss = $jwtDecoded->iss;
-                $nbf = $jwtDecoded->nbf;
-                $exp = $jwtDecoded->exp;
-                $uuid = $jwtDecoded->uuid;
-                $username = $jwtDecoded->username;
-
-                if (time() > $exp) {
-                    echo '[AUTHGATE] ERROR: Token has expired';
-                    return false;
-                }
-
-                return array(
-                    'iat' => $iat,
-                    'iss' => $iss,
-                    'nbf' => $nbf,
-                    'exp' => $exp,
-                    'uuid' => $uuid,
-                    'username' => $username
-                );
-
-            }
-            
-        } catch (Exception $e) {
-            echo '[AUTHGATE] ERROR: Token verification failed';
-            return 0;
-        }
-    }
-
-    public static function state($decodedToken) : bool {
-        if (is_array($decodedToken)) {
-            return true;
-        } else if ($decodedToken === false) {
-            return false; // Token was empty
-        } else if ($decodedToken === 0) {
-            return false; // Token verification failed
-        }
-    }
-
+    // Require login to view page 
     public static function require() {
         if (!$_SESSION['AUTH_STATE'] === true) {
             header('Location: signin');

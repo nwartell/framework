@@ -14,7 +14,7 @@ if (Http::issetPost('fname', 'lname', 'username')) {
         $stmt->bindValue(1, $fname);
         $stmt->bindValue(2, $lname);
         $stmt->bindValue(3, $username);
-        $stmt->bindValue(4, $_SESSION['UUID']);
+        $stmt->bindValue(4, $token['uuid']);
         $stmt->execute();
 
         header('Location: ../account'); // There is no "if ($stmt->rowCount() > 0)" because errors/success msg are not sent back.

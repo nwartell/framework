@@ -57,6 +57,10 @@ class User {
 
             if (!$user) {
 
+                if (!preg_match('/^(?=.*[a-zA-Z].*[a-zA-Z].*[a-zA-Z])[a-zA-Z0-9_.]{3,36}$/', $username)) {
+                    return 'Invalid username. A valid username has at least 3 letters and no more than 36 characters total. Underscores and periods are allowed.';
+                }
+
                 if (!preg_match(
                         '/^' .             // Start of string
                         '(?=.*[0-9])' .    // One digit (0-9)

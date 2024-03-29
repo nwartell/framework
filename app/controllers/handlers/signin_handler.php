@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['password'])) {
+if (Http::issetPost('username', 'password')) {
     
     $username = $_POST['username'];
     $password = $_POST['password'];

@@ -8,7 +8,7 @@ class User {
             $pdo = pdo_open();
 
             $stmt = $pdo->prepare('SELECT UUID_UNBIN(uuid) as uuid, username, password FROM users WHERE username = ?');
-            $stmt->bindValue(1, $username);
+            $stmt->bindValue(1, htmlspecialchars($username));
             $stmt->execute();
 
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -71,8 +71,8 @@ class User {
 
                 $password_hash = password_hash($password, PASSWORD_ARGON2ID);
                 
-                $stmt = $pdo->prepare("INSERT INTO users (id, uuid, username, password, fname, lname)
-                    VALUES (NULL, UNHEX(REPLACE(UUID(),'-','')), ?, ?, NULL, NULL)"
+                $stmt = $pdo->prepare("INSERT INTO users (id, uuid, username, password, fname, lname, permissions)
+                    VALUES (NULL, UNHEX(REPLACE(UUID(),'-','')), ?, ?, NULL, NULL, 0)"
                 );
                 $stmt->bindValue(1, $username);
                 $stmt->bindValue(2, $password_hash);

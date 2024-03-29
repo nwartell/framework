@@ -9,6 +9,9 @@ A simple MVC scaffold for PHP and REST API for MySQL/MariaDB. Using this as a le
 - Argon2id password hashing
 - Authenticated user sessions
 
+> [!NOTE]
+> There is support for a 3-component system on one server: Application, API, and a public-facing website. However, the public-facing website is not part of this codebase.
+
 ## Requirements
 - PHP: Vesion 7.4 or higher
 - MySQL 5.7 or 8.0+ (with modifications, see "MySQL Integration" section of this document)

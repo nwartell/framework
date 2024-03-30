@@ -3,7 +3,8 @@ A simple MVC scaffold for PHP and REST API for MySQL/MariaDB. Using this as a le
 
 ## Features
 - MVC Architecture
-- Automatic routing for controllers (w/ manual template inclusion)
+- Automatic and manual routing for controllers
+- Manual routing for middleware
 - Page templating with buffered output
 - Independent REST API for database operations
 - Supports environment variables for sensitive credentials

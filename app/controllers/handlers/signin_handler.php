@@ -4,7 +4,7 @@ if (Http::issetPost('username', 'password')) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $result = User::signIn($username, $password);
+    $result = AuthService::signIn($username, $password);
 
     if ($result === true) {
         header('Location: ../index');

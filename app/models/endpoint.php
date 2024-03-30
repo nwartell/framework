@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 class Endpoint {
 
     public static function get($endpoint, ...$args) {

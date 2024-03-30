@@ -1,23 +1,7 @@
 <?php
 
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
-
-class Router {
-
-    // URI
-    public static function extractUri($full_uri) {
-        $uri = str_replace(PUBLIC_DIR, '', $full_uri);
-        $uri = str_replace('.php', '', $uri);
-        return $uri;
-    }
-
-    public static function routeMe($full_uri) {
-        $uri = self::extractUri($full_uri);
-
-        return $routepath = __DIR__ . PATH_PREPEND_DIR . 'controllers/' . $uri . '.php';
-    }
-
+abstract class Controller {
+    
 }
 
 class Url {
@@ -47,17 +31,6 @@ class Http {
         return true;
 
     }
-}
-
-class Auth {
-
-    // Require login to view page 
-    public static function require() {
-        if (!$_SESSION['AUTH_STATE'] === true) {
-            header('Location: signin');
-        }
-    }
-
 }
 
 class Page {

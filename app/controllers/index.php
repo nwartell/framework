@@ -1,6 +1,6 @@
 <?php
 
-Auth::require();
+use App\Models\Endpoint;
 
 $title = Page::setTitle('All Posts');
 

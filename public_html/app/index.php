@@ -3,36 +3,28 @@
 session_start(['cookie_httponly' => true, 'cookie_secure' => true]);
 
 // Global Requirements
-require_once '../../app/inc/global.php';
+require_once '../../app/config/autoload.php';
+
+use App\Router\Router;
+
 useModel('database');
-useModel('endpoint');
 useModel('user');
 useController('central');
-
-// Route Logic
-$full_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$uri = Router::extractUri($full_uri);
-$routepath = Router::routeMe($full_uri);
+useService('AuthService');
 
 // Auth state
 if (isset($_SESSION['TOKEN'])) {
     $token = $_SESSION['TOKEN'];
     $_SESSION['AUTH_STATE'] = true;
+    $_SESSION['UUID'] = $token['uuid'];
 } else {
     $_SESSION['AUTH_STATE'] = false; // Token session var not set
 }
 
-if (file_exists($routepath)) {
+// Route Logic
+$uri = Router::extractUri($full_uri);
+$routepath = Router::routeMe($_SERVER['REQUEST_URI']);
 
-    require $routepath;
+echo $routepath;
 
-} else if ($uri === '') {
-
-    require DEFAULT_ROUTE;
-
-} else  {
-
-    require __DIR__ . PATH_PREPEND_DIR . 'controllers/404.php';
-
-}
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-Auth::require();
+use App\Models\Endpoint;
 
 $id = Url::extractParam('id');
 

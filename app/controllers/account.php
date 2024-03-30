@@ -1,7 +1,5 @@
 <?php
 
-Auth::require();
-
 $userInfo = User::getInfo();
 
 if (Url::extractParam('view') === 'edit') {

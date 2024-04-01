@@ -22,7 +22,6 @@ if (isset($_SESSION['TOKEN'])) {
 }
 
 // Route Logic
-$uri = Router::extractUri($full_uri);
 $routepath = Router::routeMe($_SERVER['REQUEST_URI']);
 
 echo $routepath;

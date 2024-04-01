@@ -7,14 +7,15 @@
     <div>Username: <?= $userInfo['username']; ?></div>
     <a href="account?view=edit">Edit Profile</a>
 </div>
-<!--<div> TO BE IMPLEMENTED
+<div>
     <h4>Account Settings</h4>
-    <form id="account-settings">
+    <!--<form id="account-settings">
         <input type="checkbox" id="mfa" name="mfa"><label for="mfa">Use two-factor authentication</label>
         <div>
             <input type="submit" id="save-settings" value="Save Changes">
         </div>
-    </form>
-</div>-->
+    </form>-->
+    <a href="?setting=pwdc">Change Password</a>
+</div>
 <?php $main = ob_get_clean(); ?>
 <?php include '_scaffold.php'; ?>

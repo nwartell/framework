@@ -18,7 +18,7 @@ class Router {
             $controller = $route['controller'];
 
             if (empty($middleware_array)) {
-                self::callControler($controller);
+                self::callController($controller);
             } else {
 
                 // Handle Middleware layer
@@ -29,8 +29,8 @@ class Router {
                 }
 
                 // Finally, call controller
-                self::callControler($controller);
-                
+                self::callController($controller);
+
             }
 
         } else {
@@ -40,13 +40,13 @@ class Router {
             if (file_exists($routepath)) {
                 require $routepath;
             } else {
-                require __DIR__ . PATH_PREPEND_DIR . 'controllers/404.php';
+                require __DIR__ . PATH_PREPEND_DIR . 'Controllers/404.php';
             }
 
         }
     }
 
-    public static function callControler($controller) {
+    public static function callController($controller) {
         $routepath = __DIR__ . PATH_PREPEND_DIR . 'Controllers/' . $controller . '.php';
         require $routepath;
     }

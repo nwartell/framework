@@ -1,5 +1,5 @@
 <?php ob_start() ?>
-<h2>Your Account</h2>
+<h2>Your Account > Edit Profile</h2>
 <div>
     <h4>Profile</h4>
     <form id="account_info_form" method="POST" action="handlers/edit_account_handler.php">

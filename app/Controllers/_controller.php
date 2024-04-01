@@ -1,7 +1,21 @@
 <?php
 
-abstract class Controller {
-    
+abstract class _Controller {
+
+    protected function render($template_array = [], $data = []) {
+
+        extract($data);
+
+        foreach ($template_array as $template_name) {
+            $template_file = PATH_PREPEND.'templates/'.$template_name.'.php';
+            if (!file_exists($viewFile)) {
+                throw new Exception("View file '$template_name' not found.");
+            }
+            require $template_file;
+        }
+
+    } // Eventually replace templating
+
 }
 
 class Url {
